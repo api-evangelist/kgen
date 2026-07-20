@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.kgen.io/docs/Esport%20Protocol%20V1/Tech%20integration/user-session
+docs: https://docs.kgen.io/
+summary:
+  types: [apiKey]
+  api_key_in: [header]
+  oauth2_flows: []
+  notes: >-
+    KGeN Economy Protocols use two distinct credential styles. Server-to-server
+    (/s2s/*) endpoints authenticate with a client id + client secret pair sent as
+    request headers. Front-end (/fe/*) endpoints authenticate with a per-user JWT
+    sent in the user-jwt-token header, obtained via the phone-number OTP flow. No
+    OAuth 2.0 / OpenID Connect surface is documented.
+schemes:
+  - name: server-to-server
+    type: apiKey
+    in: header
+    keys:
+      - x-client-id      # your unique client identifier
+      - x-client-secret  # your client secret
+    applies_to: /s2s/* endpoints (session creation, loyalty rewardable-events)
+    sources: [docs.kgen.io Tech Integration]
+  - name: user-jwt
+    type: apiKey
+    in: header
+    key: user-jwt-token   # user's JWT for authentication
+    applies_to: /fe/* endpoints (tournaments, wallet, rewards, statistics)
+    sources: [docs.kgen.io Tech Integration]
+user_authentication:
+  method: phone-number OTP
+  flow:
+    - POST /fe/users/auth/otp/register   # request OTP; returns authCode + isNewUser
+    - POST /fe/users/auth/otp/resend     # resend OTP
+    - POST /fe/users/auth/otp/verify     # verify OTP; links custodial wallet to KGeN wallet
+  request_headers:
+    - Content-Type: application/json
+    - user-jwt-token
