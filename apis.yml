@@ -1,23 +1,81 @@
 aid: kgen
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/kgen.png
 name: KGeN
-description: 'KGeN is a company surfaced as a portfolio company of accel, prosus-ventures and added to
-  the API Evangelist network as a stub for enrichment. Sector: marketplaces. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  KGeN (Kratos Gamer Network) is a verified-human data network powering Physical
+  AI and Large Language Models across the Global South, and the operator of the
+  KGeN Economy Protocols — a suite of developer APIs (Esports and Loyalty) that let
+  game studios add leaderboard-based competitions and customizable reward systems
+  paid in KCash, redeemable for real-world items at the Kratos Store. Server-to-server
+  and per-user (JWT/OTP) endpoints cover sessions, tournaments, wallets, rewards, and
+  rewardable events. Company revenue feeds $KGEN tokenomics, where every AI-data
+  contract permanently retires token supply on-chain. Backed by Accel and Prosus
+  Ventures.
 url: https://raw.githubusercontent.com/api-evangelist/kgen/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - accel
 - prosus-ventures
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Marketplaces
-apis: []
+- Gaming
+- Esports
+- Loyalty
+- Rewards
+- Web3
+- AI Data
+- Developer API
+apis:
+- name: KGeN Economy Protocols
+  description: >-
+    Developer APIs for the KGeN Esports and Loyalty protocols — sessions, tournaments,
+    leaderboards, wallets (KCash), rewards, and rewardable events for game developers.
+  humanURL: https://docs.kgen.io/
+  baseURL: https://stage-platform-protocols.kgen.io
+  tags:
+  - Gaming
+  - Esports
+  - Loyalty
+  - Rewards
+  - Wallet
+  properties:
+  - type: Documentation
+    url: https://docs.kgen.io/
+  - type: APIReference
+    url: https://docs.kgen.io/docs/Esport%20Protocol%20V1/Tech%20integration/api-usage
+  - type: GettingStarted
+    url: https://docs.kgen.io/docs/Esport%20Protocol%20V1/Introduction
+  - type: Authentication
+    url: authentication/kgen-authentication.yml
+  - type: Conventions
+    url: conventions/kgen-conventions.yml
+  - type: ErrorCatalog
+    url: errors/kgen-error-codes.yml
+  - type: DataModel
+    url: data-model/kgen-data-model.yml
+  - type: Sandbox
+    url: sandbox/kgen-sandbox.yml
+  - type: MCPServer
+    url: mcp/kgen-mcp.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +84,38 @@ maintainers:
 common:
 - type: Website
   url: https://www.kgen.io/
+- type: DeveloperPortal
+  url: https://docs.kgen.io/
+- type: Documentation
+  url: https://docs.kgen.io/
+- type: APIReference
+  url: https://docs.kgen.io/docs/Esport%20Protocol%20V1/Tech%20integration/api-usage
+- type: GettingStarted
+  url: https://docs.kgen.io/docs/Esport%20Protocol%20V1/Introduction
+- type: Blog
+  url: https://kgennewsletter.substack.com
+- type: Support
+  url: https://discord.com/invite/kgen-904054419597955164
+- type: Authentication
+  url: authentication/kgen-authentication.yml
+- type: Conventions
+  url: conventions/kgen-conventions.yml
+- type: ErrorCatalog
+  url: errors/kgen-error-codes.yml
+- type: DataModel
+  url: data-model/kgen-data-model.yml
+- type: Sandbox
+  url: sandbox/kgen-sandbox.yml
+- type: MCPServer
+  url: mcp/kgen-mcp.yml
+- type: LLMsTxt
+  url: llms/kgen-llms.txt
+- type: DomainSecurity
+  url: security/kgen-domain-security.yml
+- type: WellKnown
+  url: well-known/kgen-well-known.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
