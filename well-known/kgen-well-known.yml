@@ -1,0 +1,25 @@
+generated: '2026-07-19'
+method: searched
+host: https://www.kgen.io
+documents: []   # none present
+notes: >-
+  Probed /.well-known/security.txt, /openid-configuration, /oauth-authorization-server,
+  /api-catalog, and /ai-plugin.json on https://www.kgen.io. All returned HTTP 200 but
+  with Content-Type text/html — the Next.js SPA catch-all shell, not genuine well-known
+  documents. No real .well-known discovery surface is published. api.kgen.io returns 403.
+probed:
+  - path: /.well-known/security.txt
+    status: 200
+    real: false   # SPA HTML fallback
+  - path: /.well-known/openid-configuration
+    status: 200
+    real: false
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    real: false
+  - path: /.well-known/api-catalog
+    status: 200
+    real: false
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    real: false

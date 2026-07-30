@@ -1,0 +1,36 @@
+# KGeN (Kratos Gamer Network)
+
+> KGeN is a verified-human data network powering Physical AI and LLMs, and the operator of the KGeN Economy Protocols — a suite of gaming APIs (Esports and Loyalty) that let game developers add leaderboard competitions and reward systems paid in KCash, redeemable at the Kratos Store. Revenue feeds $KGEN tokenomics: every AI-data contract permanently reduces token supply on-chain.
+
+## APIs
+
+- [KGeN Economy Protocols docs](https://docs.kgen.io/): Docusaurus developer docs for the Esports and Loyalty protocols.
+- [Esports Protocol — Introduction](https://docs.kgen.io/docs/Esport%20Protocol%20V1/Introduction): leaderboard-based competitions + KCash rewards for game developers.
+- [Esports Protocol — API Usage](https://docs.kgen.io/docs/Esport%20Protocol%20V1/Tech%20integration/api-usage): endpoint reference (sessions, tournaments, wallet, rewards, OTP).
+- [Loyalty Protocol — API Usage](https://docs.kgen.io/docs/Loyalty%20Protocol%20V1/Tech%20integration/api-usage): rewardable-events lifecycle + wallet/reward endpoints.
+
+## Authentication
+
+- Server-to-server (/s2s/*): `x-client-id` + `x-client-secret` headers.
+- Front-end (/fe/*): `user-jwt-token` header (JWT via phone-number OTP flow).
+- Staging base URL: https://stage-platform-protocols.kgen.io
+
+## Artifacts (API Evangelist)
+
+- Authentication: authentication/kgen-authentication.yml
+- Conventions: conventions/kgen-conventions.yml
+- Error codes: errors/kgen-error-codes.yml
+- Data model: data-model/kgen-data-model.yml
+- Sandbox: sandbox/kgen-sandbox.yml
+- MCP (candidate): mcp/kgen-mcp.yml
+- Domain security: security/kgen-domain-security.yml
+
+## Company
+
+- [Website](https://www.kgen.io/)
+- [Token / $KGEN](https://token.kgen.io/)
+- [Engage app](https://engage.kgen.io)
+- [Kratos Store](https://kstore.global/store)
+- [Newsletter](https://kgennewsletter.substack.com)
+- [Discord](https://discord.com/invite/kgen-904054419597955164)
+- Backed by Accel and Prosus Ventures.

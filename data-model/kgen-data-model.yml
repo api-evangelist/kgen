@@ -1,0 +1,58 @@
+generated: '2026-07-19'
+method: derived
+source: https://docs.kgen.io/
+# Entity-relationship graph derived from the documented KGeN Economy Protocols
+# endpoints and response fields (no OpenAPI published; derived from docs verbatim).
+entities:
+  - name: Gamer
+    key: user_id
+    fields: [user_id, name, username, email, device_id, phonenumber, level, rank, date_joined, playertag, location]
+    source: POST /s2s/session
+  - name: Session
+    key: null
+    belongs_to: Gamer (via user_id)
+    source: POST /s2s/session
+  - name: Tournament
+    key: tournamentUID
+    fields: [tournamentUID, leaderboard, active]
+    source: /fe/esports/tournaments/*
+  - name: Wallet
+    key: wallet_address
+    belongs_to: Gamer
+    fields: [wallet_address, earned_balance, bought_balance, bonus_balance, lazy_balance, on_chain_balance, lazy_balance_delta]
+    source: GET /fe/wallet/balance
+  - name: Transaction
+    belongs_to: Wallet (via wallet_address)
+    source: GET /fe/wallet/transactions
+  - name: Reward
+    fields: [user_id, tournament_id, claim_status, reward, wallet_address]
+    source: /fe/esports/rewards/claim
+  - name: RewardableEvent
+    key: eventID
+    fields: [eventType, eventName, eventDescription, entityType, rewardAmount, rewardCategory, isActive]
+    source: /s2s/loyalty/rewardable-events
+relationships:
+  - from: Session
+    to: Gamer
+    kind: belongs_to
+    via: user_id
+  - from: Wallet
+    to: Gamer
+    kind: belongs_to
+    via: user_id
+  - from: Transaction
+    to: Wallet
+    kind: belongs_to
+    via: wallet_address
+  - from: Reward
+    to: Gamer
+    kind: belongs_to
+    via: user_id
+  - from: Reward
+    to: Tournament
+    kind: belongs_to
+    via: tournament_id
+  - from: Tournament
+    to: Gamer
+    kind: has_many
+    via: participation

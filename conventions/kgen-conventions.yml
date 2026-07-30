@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.kgen.io/
+docs: https://docs.kgen.io/
+# Cross-cutting request/response semantics for the KGeN Economy Protocols API,
+# captured from the published Tech Integration docs. Only documented behavior is
+# recorded here; undocumented conventions are left absent rather than assumed.
+authentication:
+  style: header credentials
+  server_to_server: x-client-id + x-client-secret headers
+  front_end: user-jwt-token (JWT) header
+  cross_ref: authentication/kgen-authentication.yml
+content_type: application/json
+idempotency:
+  documented: false   # no idempotency-key header/param is documented
+pagination:
+  documented: false   # list endpoints (active/participated tournaments, transactions) document no pagination params
+versioning:
+  scheme: protocol-version (docs organized as "Esports Protocol V1" / "Loyalty Protocol V1")
+  in_path: false      # HTTP paths carry no version segment
+error_envelope:
+  shape: JSON object with a string status/code (e.g. "UN_AUTHORIZED")
+  format: custom      # not RFC 9457 application/problem+json
+  cross_ref: errors/kgen-error-codes.yml
+request_tracing:
+  documented: false
+rate_limit_signaling:
+  documented: false
+environments:
+  staging_base_url: https://stage-platform-protocols.kgen.io
+  production_base_url: not published in docs
+  cross_ref: sandbox/kgen-sandbox.yml

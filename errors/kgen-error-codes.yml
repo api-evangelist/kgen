@@ -1,0 +1,21 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.kgen.io/docs/Esport%20Protocol%20V1/Tech%20integration/otp
+format: custom-json   # string status/code envelope, NOT RFC 9457 problem+json
+envelope:
+  description: >-
+    Endpoints return HTTP status codes; failures carry a JSON body with a string
+    status code. Documented example: 401 Unauthorized with code "UN_AUTHORIZED".
+  fields:
+    - status_code: string machine code (e.g. UN_AUTHORIZED)
+codes:
+  - http_status: 200
+    meaning: OK / success
+  - http_status: 401
+    code: UN_AUTHORIZED
+    meaning: Authentication failed or missing/invalid credentials (client id/secret or user-jwt-token)
+    remediation: Verify x-client-id/x-client-secret (s2s) or a valid user-jwt-token (fe) is present.
+notes: >-
+  The Tech Integration docs document success (200) and failure (401 UN_AUTHORIZED)
+  per endpoint but do not publish a full error-code registry. Only documented codes
+  are recorded; additional codes are not fabricated.

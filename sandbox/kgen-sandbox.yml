@@ -1,0 +1,24 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.kgen.io/docs/Loyalty%20Protocol%20V1/Tech%20integration/rewardable-events
+# KGeN Economy Protocols publish a staging environment for integration testing.
+environments:
+  - name: staging
+    base_url: https://stage-platform-protocols.kgen.io
+    evidence: >-
+      Published cURL example uses
+      'https://stage-platform-protocols.kgen.io/s2s/loyalty/rewardable-events'
+      with placeholder x-client-id / x-client-secret headers.
+  - name: production
+    base_url: not published in docs
+credentials:
+  server_to_server:
+    - x-client-id: "[Your Client ID]"
+    - x-client-secret: "[Your Client Secret]"
+  front_end:
+    - user-jwt-token: obtained via phone-number OTP flow
+test_values:
+  documented: false   # no magic test phone numbers / fixtures published; none invented
+notes: >-
+  Integration credentials (client id/secret) are issued by KGeN on request
+  ("Get in touch with us"); the docs do not publish self-serve test keys.
