@@ -1,6 +1,7 @@
 generated: '2026-07-19'
 method: derived
-status: candidate   # no official/hosted KGeN MCP server found; tools derived from documented endpoints
+status: candidate
+status_raw: candidate
 source: https://docs.kgen.io/
 server:
   name: kgen-economy-protocols
