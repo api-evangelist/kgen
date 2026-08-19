@@ -6,67 +6,71 @@ source: https://docs.kgen.io/
 server:
   name: kgen-economy-protocols
   transport: http
-  url: null   # no published MCP endpoint
+  url: null
 tools:
-  # KGeN Esports Protocol (base: https://stage-platform-protocols.kgen.io)
-  - name: create_session
-    description: Create or retrieve a gamer's session context.
-    source_operation: POST /s2s/session
-  - name: join_tournament
-    description: Add a gamer to a tournament.
-    source_operation: POST /fe/esports/tournaments/{tournamentUID}/join
-  - name: leave_tournament
-    description: Remove a gamer from a tournament.
-    source_operation: POST /fe/esports/tournaments/{tournamentUID}/leave
-  - name: update_tournament_score
-    description: Update a gamer's score in a tournament.
-    source_operation: POST /fe/esports/tournaments/{tournamentUID}/score
-  - name: list_active_tournaments
-    description: Retrieve active tournaments.
-    source_operation: GET /fe/esports/tournaments/active
-  - name: list_participated_tournaments
-    description: List tournaments a user has participated in.
-    source_operation: GET /fe/esports/tournaments/participated
-  - name: get_tournament
-    description: Retrieve details about a specific tournament.
-    source_operation: GET /fe/esports/tournaments/{tournamentUID}
-  - name: get_tournament_leaderboard
-    description: Retrieve a tournament leaderboard.
-    source_operation: GET /fe/esports/tournaments/{tournamentUID}/leaderboard
-  - name: get_wallet_balance
-    description: Retrieve a user's wallet balance details.
-    source_operation: GET /fe/wallet/balance
-  - name: list_wallet_transactions
-    description: Retrieve a wallet's transaction history.
-    source_operation: GET /fe/wallet/transactions
-  - name: withdraw_wallet
-    description: Transfer earned balance from custodial to KGeN wallet.
-    source_operation: POST /fe/wallet/withdraw
-  - name: list_claimable_rewards
-    description: Get a user's unclaimed rewards.
-    source_operation: GET /fe/esports/rewards/claim
-  - name: claim_rewards
-    description: Claim a user's earned rewards.
-    source_operation: POST /fe/esports/rewards/claim
-  - name: request_otp
-    description: Generate an OTP for user verification.
-    source_operation: POST /fe/users/auth/otp/register
-  - name: resend_otp
-    description: Resend the OTP for user authentication.
-    source_operation: POST /fe/users/auth/otp/resend
-  - name: verify_otp
-    description: Verify an OTP; links custodial wallet to KGeN wallet.
-    source_operation: POST /fe/users/auth/otp/verify
-  # KGeN Loyalty Protocol
-  - name: upsert_rewardable_event
-    description: Register or update a rewardable event.
-    source_operation: PUT /s2s/loyalty/rewardable-events
-  - name: list_rewardable_events
-    description: List active rewardable events.
-    source_operation: GET /s2s/loyalty/rewardable-events
-  - name: get_rewardable_event
-    description: Retrieve a specific rewardable event.
-    source_operation: GET /s2s/loyalty/rewardable-events/{eventID}
-  - name: delete_rewardable_event
-    description: Delete a rewardable event.
-    source_operation: DELETE /s2s/loyalty/rewardable-events/{eventID}
+- name: create_session
+  description: Create or retrieve a gamer's session context.
+  source_operation: POST /s2s/session
+- name: join_tournament
+  description: Add a gamer to a tournament.
+  source_operation: POST /fe/esports/tournaments/{tournamentUID}/join
+- name: leave_tournament
+  description: Remove a gamer from a tournament.
+  source_operation: POST /fe/esports/tournaments/{tournamentUID}/leave
+- name: update_tournament_score
+  description: Update a gamer's score in a tournament.
+  source_operation: POST /fe/esports/tournaments/{tournamentUID}/score
+- name: list_active_tournaments
+  description: Retrieve active tournaments.
+  source_operation: GET /fe/esports/tournaments/active
+- name: list_participated_tournaments
+  description: List tournaments a user has participated in.
+  source_operation: GET /fe/esports/tournaments/participated
+- name: get_tournament
+  description: Retrieve details about a specific tournament.
+  source_operation: GET /fe/esports/tournaments/{tournamentUID}
+- name: get_tournament_leaderboard
+  description: Retrieve a tournament leaderboard.
+  source_operation: GET /fe/esports/tournaments/{tournamentUID}/leaderboard
+- name: get_wallet_balance
+  description: Retrieve a user's wallet balance details.
+  source_operation: GET /fe/wallet/balance
+- name: list_wallet_transactions
+  description: Retrieve a wallet's transaction history.
+  source_operation: GET /fe/wallet/transactions
+- name: withdraw_wallet
+  description: Transfer earned balance from custodial to KGeN wallet.
+  source_operation: POST /fe/wallet/withdraw
+- name: list_claimable_rewards
+  description: Get a user's unclaimed rewards.
+  source_operation: GET /fe/esports/rewards/claim
+- name: claim_rewards
+  description: Claim a user's earned rewards.
+  source_operation: POST /fe/esports/rewards/claim
+- name: request_otp
+  description: Generate an OTP for user verification.
+  source_operation: POST /fe/users/auth/otp/register
+- name: resend_otp
+  description: Resend the OTP for user authentication.
+  source_operation: POST /fe/users/auth/otp/resend
+- name: verify_otp
+  description: Verify an OTP; links custodial wallet to KGeN wallet.
+  source_operation: POST /fe/users/auth/otp/verify
+- name: upsert_rewardable_event
+  description: Register or update a rewardable event.
+  source_operation: PUT /s2s/loyalty/rewardable-events
+- name: list_rewardable_events
+  description: List active rewardable events.
+  source_operation: GET /s2s/loyalty/rewardable-events
+- name: get_rewardable_event
+  description: Retrieve a specific rewardable event.
+  source_operation: GET /s2s/loyalty/rewardable-events/{eventID}
+- name: delete_rewardable_event
+  description: Delete a rewardable event.
+  source_operation: DELETE /s2s/loyalty/rewardable-events/{eventID}
+deployment:
+  mode: none
+  verified: derived
+  tools: 20
+  checked: '2026-08-12'
+  source: catalog MCP census
